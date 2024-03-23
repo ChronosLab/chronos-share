@@ -21,7 +21,7 @@ export async function POST(request: Request) {
 
         // store in local cache 
         const token = await hash(rand, loginUser.username + loginUser.email)
-        const tokenExpiry = new Date().getTime() + 1000 * 60 * 60 * 24 // 1 days
+        const tokenExpiry = new Date().getTime() + 1000 * 60 * 60 * 24 // 1 day
 
         await prisma.user.update({
             where: { email: email },
