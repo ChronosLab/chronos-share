@@ -1,5 +1,4 @@
 import { mintclub } from 'mint.club-v2-sdk'
-import { ethers } from 'ethers'
 
 export async function sell(nftName: string, amount: number = 1, recipient: `0x${string}`) {
   try {
@@ -7,7 +6,7 @@ export async function sell(nftName: string, amount: number = 1, recipient: `0x${
       .network('sepolia')
       .nft(nftName)
       .sell({
-        amount: ethers.parseEther(amount.toString()),
+        amount: BigInt(amount),
         recipient,
         onError: (error) => {
           console.info(error)
