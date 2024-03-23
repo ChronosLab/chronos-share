@@ -14,7 +14,7 @@ const Content: React.FC<ContentProps> = ({ className }) => {
       <div className="h-50 divider">
         <p className="text-2xl">~~ Latest Share ~~</p>
       </div>
-      <div className="grid h-[750px] card rounded-box place-items-center flex-grow">
+      <div className="grid h-[880px] card rounded-box place-items-center flex-grow">
         <TimeLine />
       </div>
     </div>

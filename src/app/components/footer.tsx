@@ -4,17 +4,11 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
-    <footer
-      className={`footer p-10 bg-base-200 text-base-content ${className}`}
-    >
+    <footer className={`footer p-10 bg-base-200 text-base-content ${className}`}>
       <aside>
-        <img
-          className="w-[60px] h-[60px]"
-          alt="Chronos Share"
-          src="/assets/ChronosLogo.png"
-        />
+        <img className="w-[60px] h-[60px]" alt="Chronos Share" src="/assets/ChronosLogo.png" />
         <p>
-          ACME Industries Ltd.
+          Chronos Share Ltd.
           <br />
           Providing reliable tech since 2024
         </p>
