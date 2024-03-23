@@ -1,5 +1,7 @@
 # Chronos Share
 
+## For more design doc please check [doc](./doc/doc.en.md)
+
 ## Getting Started
 
 setting up the environment
