@@ -14,40 +14,59 @@ datasource db {
 }
 
 model User {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  email       String    @unique
-  username    String    @unique
-  password    String
-  token       String?
-  tokenExpiry DateTime?
-  nft_list    NFT[]
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  email           String    @unique
+  username        String    @unique
+  password        String
+  token           String?
+  tokenExpiry     DateTime?
+  nftList         NFT[]
+  timeServiceList TimeService[] 
+  address         String
 }
 
 model TimeService {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  service   String?
-  owner     String?
-  buyer     String?
-  timerange Int?
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  price       Float
+  status      ServiceStatus
+  ownerId     String   @db.ObjectId
+  owner       User     @relation(fields: [ownerId], references: [id])
+  timeStarted DateTime
+  timeEnded   DateTime
+  nft         NFT?     @relation(fields: [nftId], references: [id])
+  nftId       String?  @db.ObjectId
 }
 
-// model Transaction {
-//   
-// }
-
 model NFT {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  owner       String?
-  ownerId     String    @map("userId") @db.ObjectId
-  buyer       String?
-  price       Int?
-  tokenURI    String?
-  tokenID     String?
-  contract    String?
-  status      String?
-  timestamp   DateTime?
-  service     String?
-  timerange   Int?
-  transaction String?
-  user        User      @relation(fields: [ownerId], references: [id])
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  minterId      String       @db.ObjectId
+  minter        User         @relation(fields: [minterId], references: [id])
+  timeserviceId String       @db.ObjectId
+  timeservice   TimeService  @relation(fields: [timeserviceId], references: [id])
+  tokenURI      String
+  tokenID       String
+  contract      String
+  status        String
+  mintTime      DateTime
+  transaction   String
+}
+
+model Transaction {
+  nftId       string
+  nft         NFT
+  price       Float
+  buyerId
+  buyer       User
+  sellerId
+  seller      User
+  transaction String
+}
+
+enum ServiceStatus {
+  INIT
+  MINT
+  COMPLETED
+  CANCELED
 }
