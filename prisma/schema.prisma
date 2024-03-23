@@ -14,40 +14,54 @@ datasource db {
 }
 
 model User {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  email       String    @unique
-  username    String    @unique
-  password    String
-  token       String?
-  tokenExpiry DateTime?
-  nft_list    NFT[]
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  email           String    @unique
+  username        String    @unique
+  password        String
+  token           String?
+  tokenExpiry     DateTime?
+  nftList         String[]
+  timeServiceList String[] 
+  address         String
 }
 
 model TimeService {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  service   String?
-  owner     String?
-  buyer     String?
-  timerange Int?
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  price       Float
+  status      ServiceStatus
+  ownerId     String
+  timeStarted DateTime
+  timeEnded   DateTime
+  nftId       String?
 }
 
-// model Transaction {
-//   
-// }
-
 model NFT {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  owner       String?
-  ownerId     String    @map("userId") @db.ObjectId
-  buyer       String?
-  price       Int?
-  tokenURI    String?
-  tokenID     String?
-  contract    String?
-  status      String?
-  timestamp   DateTime?
-  service     String?
-  timerange   Int?
-  transaction String?
-  user        User      @relation(fields: [ownerId], references: [id])
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  minterId      String
+  timeserviceId String
+  tokenURI      String
+  tokenID       String
+  contract      String
+  status        String
+  mintTime      DateTime
+  transaction   String
+}
+
+model Transaction {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  nftId       String   
+  price       Float
+  buyerId     String
+  sellerId    String
+  transaction String
+}
+
+
+enum ServiceStatus {
+  INIT
+  MINT
+  COMPLETED
+  CANCELED
 }
