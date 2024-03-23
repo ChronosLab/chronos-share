@@ -21,12 +21,12 @@ model User {
   token           String?
   tokenExpiry     DateTime?
   nftList         String[]
-  timeServiceList String[] 
-  address         String
+  timeServiceList String[]
+  address         String?
 }
 
 model TimeService {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String
   price       Float
@@ -38,7 +38,7 @@ model TimeService {
 }
 
 model NFT {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
   minterId      String
   timeserviceId String
   tokenURI      String
@@ -50,14 +50,13 @@ model NFT {
 }
 
 model Transaction {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  nftId       String   
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  nftId       String
   price       Float
   buyerId     String
   sellerId    String
   transaction String
 }
-
 
 enum ServiceStatus {
   INIT
