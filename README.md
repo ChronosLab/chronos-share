@@ -1,6 +1,7 @@
 <div align="center">
 	<img src="./doc/img/ChronosLogo.png" alt="Editor" width="300">
 </div>
+
 # Chronos Share
 
 ## For more design doc please check [doc](./doc/doc.en.md)
