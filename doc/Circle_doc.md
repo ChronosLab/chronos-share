@@ -1,5 +1,7 @@
-# Circle design 
-## User control wallet 
+# Circle design
+
+## User control wallet
+
 1. Sign up for Circle's Dev Console to obtain an APP ID.
 2. Create api key
 3. Generating the Entity Secret
@@ -11,9 +13,10 @@
 9. Getting the tokenId
 10. SentTransaction
 
-
 ## CCTP
+
 to help user to withdraw to CCTP support chain
 
 ## Gas Station
+
 to paid for user's transfer fee

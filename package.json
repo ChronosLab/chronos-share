@@ -1,12 +1,16 @@
 {
   "name": "chronos-share",
   "version": "0.1.0",
+  "prettier": {
+    "htmlWhitespaceSensitivity": "css",
+    "printWidth": 120
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "pnpm exec prettier . --write\n",
     "test": "jest"
   },
   "dependencies": {
@@ -19,6 +23,7 @@
     "mint.club-v2-sdk": "^0.0.88",
     "next": "14.1.4",
     "pnpm": "^8.15.5",
+    "prettier": "^3.2.5",
     "react": "^18",
     "react-dom": "^18"
   },

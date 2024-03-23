@@ -41,9 +41,3 @@ export async function mintNFT(nftName: string, symbolUri: string, numberOfNfts: 
   }) 
   
 }
-
-
-function https(arg0: string): import("viem").TransportConfig<string, import("viem").EIP1193RequestFn> & Record<string, any> {
-  throw new Error('Function not implemented.');
-}
-
