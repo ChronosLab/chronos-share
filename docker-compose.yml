@@ -1,9 +1,9 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mongo1:
     image: mongo:latest
-    command: [ "--replSet", "rs0", "--bind_ip_all", "--port", "27017" ]
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
     ports:
       - 27017:27017
     healthcheck:

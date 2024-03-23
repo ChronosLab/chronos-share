@@ -5,22 +5,26 @@
 # Chronos Share
 
 ## For more design doc please check [doc](./doc/doc.en.md)
+
 ## [Circle design](./doc/Circle_doc.md)
+
 ## [MintClub design](./doc/MintClub.md)
 
 ## Getting Started
 
 setting up the environment
+
 ```shell
 cp .env.example .env
 ```
 
 Run MongoDB with Docker:
+
 ```shell
 docker-compose up -d
 ```
 
-```shell
+````shell
 
 First, run the development server:
 
@@ -32,9 +36,10 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 ### how to use prisma
+
 ```shell
 prisma format
 npx prisma generate
