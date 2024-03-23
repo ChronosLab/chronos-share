@@ -2,6 +2,7 @@ import { mintclub } from 'mint.club-v2-sdk'
 
 export async function mintNFT(nftName: string, symbolUri: string, numberOfNfts: number = 1, mintPrice: number = 0.001) {
   try {
+    console.log('mintNFT', nftName, symbolUri, numberOfNfts, mintPrice)
     return await mintclub
       .network('sepolia')
       .nft(nftName)

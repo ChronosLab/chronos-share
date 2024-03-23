@@ -1,10 +1,10 @@
-// admin.tsx
+"use client";
 import React, { useEffect, useState } from "react";
 import { mintNFT } from "../commons/mint";
 
-const AdminPage = () => {
+const Admin = () => {
   const [account, setAccount] = useState("");
-  const [nftName, setNftName] = useState('');
+  const [nftName, setNftName] = useState("");
 
   useEffect(() => {
     connectWallet();
@@ -25,6 +25,7 @@ const AdminPage = () => {
 
   const mint = async (nftName: string) => {
     try {
+      console.log("Minting NFT:", nftName);
       const result = await mintNFT(nftName, "chronos-share.vercel.app/assets/ChronosLogo.png");
       console.log("Minted NFT:", result);
     } catch (error) {
@@ -51,4 +52,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default Admin;

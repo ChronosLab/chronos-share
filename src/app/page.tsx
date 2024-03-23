@@ -1,3 +1,4 @@
+import Admin from "./components/admin";
 import Content from "./components/content";
 import Footer from "./components/footer";
 
@@ -87,6 +88,9 @@ const Page: React.FC = () => {
       </div>
       <Content className="flex-grow" />
       <Footer />
+
+      <Admin />
+
     </div>
   );
 };
