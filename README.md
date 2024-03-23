@@ -1,6 +1,11 @@
+<div align="center">
+	<img src="./doc/img/ChronosLogo.png" alt="Editor" width="300">
+</div>
 # Chronos Share
 
 ## For more design doc please check [doc](./doc/doc.en.md)
+## [Circle design](./doc/Circle_doc.md)
+## [MintClub design](./doc/MintClub.md)
 
 ## Getting Started
 
