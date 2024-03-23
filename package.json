@@ -1,6 +1,9 @@
 {
   "name": "chronos-share",
   "version": "0.1.0",
+  "prettier": {
+    "htmlWhitespaceSensitivity": "css"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
