@@ -20,8 +20,8 @@ model User {
   password        String
   token           String?
   tokenExpiry     DateTime?
-  nftList         NFT[]
-  timeServiceList TimeService[] 
+  nftList         String[]
+  timeServiceList String[] 
   address         String
 }
 
@@ -31,20 +31,16 @@ model TimeService {
   description String
   price       Float
   status      ServiceStatus
-  ownerId     String   @db.ObjectId
-  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId     String
   timeStarted DateTime
   timeEnded   DateTime
-  nft         NFT?     @relation(fields: [nftId], references: [id])
-  nftId       String?  @db.ObjectId
+  nftId       String?
 }
 
 model NFT {
-  id            String       @id @default(auto()) @map("_id") @db.ObjectId
-  minterId      String       @db.ObjectId
-  minter        User         @relation(fields: [minterId], references: [id])
-  timeserviceId String       @db.ObjectId
-  timeservice   TimeService  @relation(fields: [timeserviceId], references: [id])
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  minterId      String
+  timeserviceId String
   tokenURI      String
   tokenID       String
   contract      String
@@ -54,15 +50,14 @@ model NFT {
 }
 
 model Transaction {
-  nftId       string
-  nft         NFT
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  nftId       String   
   price       Float
-  buyerId
-  buyer       User
-  sellerId
-  seller      User
+  buyerId     String
+  sellerId    String
   transaction String
 }
+
 
 enum ServiceStatus {
   INIT
