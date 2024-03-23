@@ -1,7 +1,7 @@
-## 專案名稱: ChronoShare
+## 專案名稱: ChronosShare
 
 ~~1. TimeShare~~
-2. ChronoShare “Chrono”（時間的希臘詞根）
+2. ChronosShare “Chronos”（時間的希臘詞根）
 
 ~~3. TimeMarket~~
 
