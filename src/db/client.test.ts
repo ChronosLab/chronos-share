@@ -1,5 +1,4 @@
 import prisma from './client'
-import { createUser } from './prismaUtils';
 
 describe('prismaUtils', () => {
     afterAll(async () => {
@@ -7,10 +6,12 @@ describe('prismaUtils', () => {
     });
 
     it('creates a user', async () => {
-        const user = await createUser({
-            email: 'test@asr.com',
-            password: 'password',
-            username: 'test'
+        const user = await prisma.user.create({
+            data: {
+                email: 'test@asr.com',
+                password: 'password',
+                username: 'test'
+            }
         });
         expect(user).toHaveProperty('id');
     });

@@ -14,8 +14,23 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  email    String @unique
-  username String @unique
-  password String
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  email       String @unique
+  username    String @unique
+  password    String
+  token       String
+  tokenExpiry DateTime
+  nft_list  
 }
+
+model TimeService {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  service    String
+  owner      String
+  buyer      String
+  timerange  Int
+}
+
+// model Transaction {
+//   
+// }
