@@ -8,7 +8,7 @@ interface ContentProps {
 const Content: React.FC<ContentProps> = ({ className }) => {
   return (
     <div className={`flex flex-col w-full border-opacity-50 ${className}`}>
-      <div className="grid h-[310px] card bg-base-500 rounded-box place-items-center flex-grow">
+      <div className="grid h-[400px] card bg-base-500 rounded-box place-items-center flex-grow">
         <Carousel />
       </div>
       <div className="h-50 divider">
