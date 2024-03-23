@@ -14,23 +14,40 @@ datasource db {
 }
 
 model User {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  email       String @unique
-  username    String @unique
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  email       String   @unique
+  username    String   @unique
   password    String
   token       String
   tokenExpiry DateTime
-  nft_list  
+  nft_list    NFT[]
 }
 
 model TimeService {
-  id         String @id @default(auto()) @map("_id") @db.ObjectId
-  service    String
-  owner      String
-  buyer      String
-  timerange  Int
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  service   String
+  owner     String
+  buyer     String
+  timerange Int
 }
 
 // model Transaction {
 //   
 // }
+
+model NFT {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  owner       String
+  ownerId     String   @map("userId") @db.ObjectId
+  buyer       String
+  price       Int
+  tokenURI    String
+  tokenID     String
+  contract    String
+  status      String
+  timestamp   DateTime
+  service     String
+  timerange   Int
+  transaction String
+  user        User     @relation(fields: [ownerId], references: [id])
+}
