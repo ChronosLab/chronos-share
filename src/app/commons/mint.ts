@@ -9,7 +9,7 @@ export async function mintNFT(nftName: string, symbolUri: string, numberOfNfts: 
       .create({
         name: nftName,
         reserveToken: {
-          address: '0xFA0bd2B4d6D629AdF683e4DCA310c562bCD98E4E', // USDC
+          address: '0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238', // USDC
           decimals: 6,
         },
         curveData: {

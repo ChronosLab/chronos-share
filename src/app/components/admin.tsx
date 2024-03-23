@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import { mintNFT } from "../commons/mint";
 import { buyNFT } from "../commons/buy";
+import { readNFT } from "../commons/read";
 
 const Admin = () => {
   const [account, setAccount] = useState("");
+  const [nftAddress, setNftAddress] = useState("");
   const [nftName, setNftName] = useState("");
   const [recipient, setRecipient] = useState("");
 
@@ -26,6 +28,17 @@ const Admin = () => {
       console.log("Minting NFT:", nftName);
       const result = await mintNFT(nftName, "chronos-share.vercel.app/assets/ChronosLogo.png");
       console.log("Minted NFT:", result);
+    } catch (error) {
+      console.error("Error minting NFT:", error);
+    }
+  };
+
+  const read = async (nftName: string) => {
+    try {
+      const nft = await readNFT(nftName);
+      const address = await nft.getBondAddress();
+      console.log("NFT Address:", address);
+      setNftAddress(address);
     } catch (error) {
       console.error("Error minting NFT:", error);
     }
@@ -64,10 +77,24 @@ const Admin = () => {
       <p>SPACE</p>
       <p>SPACE</p>
 
-      <input type="text" value={nftName} onChange={(e) => setNftName(e.target.value)} placeholder="Enter NFT Name" />
-      <input type="text" value={recipient} onChange={(e) => setRecipient(e.target.value)} placeholder="Enter Recipient" />
-      <button onClick={() => buy(nftName, recipient as `0x${string}`)}>Buy NFT</button>
+      <button onClick={() => read(nftName)}>READ NFT</button>
+      {nftAddress && <p>NFT Address: {nftAddress}</p>}
 
+      <p>SPACE</p>
+      <p>SPACE</p>
+      <p>SPACE</p>
+      <p>SPACE</p>
+      <p>SPACE</p>
+      <p>SPACE</p>
+
+      <input type="text" value={nftName} onChange={(e) => setNftName(e.target.value)} placeholder="Enter NFT Name" />
+      <input
+        type="text"
+        value={recipient}
+        onChange={(e) => setRecipient(e.target.value)}
+        placeholder="Enter Recipient"
+      />
+      <button onClick={() => buy(nftName, recipient as `0x${string}`)}>Buy NFT</button>
     </div>
   );
 };
