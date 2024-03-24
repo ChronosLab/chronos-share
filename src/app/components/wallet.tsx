@@ -51,17 +51,17 @@ const Wallet = () => {
   };
 
   return (
-    <div>
+    <div className="mt-[20px]">
       <h1>User Wallet</h1>
       <button onClick={createUserFun}>CREATE USER WALLET</button>
-        <br />
-        <button onClick={showWallet}>SHOW WALLET</button>
-        <br />
-        <p>AccountType: {wallet.accountType}</p>
-        <p>Address: {wallet.address}</p>
-        <p>custodyType: {wallet.custodyType}</p>
-        <p>Blockchain: {wallet.blockchain}</p>
-        <p>UserId: {wallet.userId}</p>
+      <br />
+      <button onClick={showWallet}>SHOW WALLET</button>
+      <br />
+      <p>AccountType: {wallet.accountType}</p>
+      <p>Address: {wallet.address}</p>
+      <p>custodyType: {wallet.custodyType}</p>
+      <p>Blockchain: {wallet.blockchain}</p>
+      <p>UserId: {wallet.userId}</p>
     </div>
   );
 };
