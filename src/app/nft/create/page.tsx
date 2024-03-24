@@ -1,3 +1,4 @@
+"use client"; 
 import React, { useState } from "react";
 import Navbar from "@/app/components/navbar";
 import { mintNFT } from "@/app/commons/mint";
