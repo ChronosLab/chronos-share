@@ -6,11 +6,11 @@ interface PageProps {
   className?: string;
 }
 
-const Page: React.FC<DetailProps> = ({ className }) => {
+const Page: React.FC<PageProps> = ({ className }) => {
   const [showToaster, setShowToaster] = useState(false);
 
   const handleBuyClick = () => {
-    // 當按下 "Buy" 按鈕時，設置 showToaster 為 true，從而顯示 toaster
+    // 當按下 "Buy" 按鈕時，設置 showToaster 為 true，從而顯示 toaster 1s後轉回/market/first
     setShowToaster(true);
   };
 
@@ -41,7 +41,7 @@ const Page: React.FC<DetailProps> = ({ className }) => {
         Skilled hand-to-hand combatant.</p> 
             </div> 
           <div className="card-actions justify-end">
-            <button className="btn btn-primary" onClick={handleBuyClick}>
+            <button className="w-[100px] btn btn-primary" onClick={handleBuyClick}>
               Buy
             </button>
           </div>

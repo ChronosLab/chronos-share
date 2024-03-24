@@ -6,7 +6,7 @@ const Page: React.FC = () => {
     <div className="flex flex-col min-h-screen items-center">
       <Navbar />
       <Wallet />
-     </div>
+    </div>
   );
 };
 export default Page;
