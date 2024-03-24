@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Footer from "@/app/components/footer";
 import Navbar from "@/app/components/navbar";
@@ -70,6 +70,7 @@ const Page: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen items-center">
       <Navbar />
+      <h1 className="menu menu-horizontal text-2xl">Chronos Market</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
         {mockNFTs.map((nft) => (
           <div key={nft.id} className="card w-96 bg-base-100 shadow-xl">
@@ -81,7 +82,9 @@ const Page: React.FC = () => {
               <p>{nft.nftName}</p>
               <p className="font-bold">{nft.nftPrice}</p>
               <div className="card-actions">
-                <button className="btn btn-primary" onClick={handleBuyNowClick}>Buy Now</button>
+                <button className="btn btn-primary" onClick={handleBuyNowClick}>
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>

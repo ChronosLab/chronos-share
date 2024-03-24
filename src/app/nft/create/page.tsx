@@ -115,7 +115,7 @@ const Page: React.FC = () => {
           </div>
         </div>
       )}
-
+      <h1 className="mt-[10px] mx-auto text-2xl">Mint</h1>
       <div className="container mx-auto w-1/2">
         {account ? (
           <div className="collapse bg-base-200 w-80 mt-6">

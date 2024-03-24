@@ -76,6 +76,7 @@ const Page: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen items-center">
       <Navbar />
+      <h1 className="menu menu-horizontal text-2xl">Secondary Chronos Market</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
         {mockNFTs.map((nft) => {
           const priceIncrease = parseFloat(nft.newPrice) > parseFloat(nft.nftPrice);

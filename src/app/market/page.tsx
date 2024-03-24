@@ -29,6 +29,7 @@ const Page: React.FC = () => {
           </div>
         </div>
       )}
+      <h1 className="menu menu-horizontal text-2xl">Chronos Detail</h1>
       <div className="mt-[120px] w-1/2 border-2 card card-side bg-base-100 shadow-xl">
         <figure>
           <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" />
@@ -52,7 +53,7 @@ const Page: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer className="fixed bottom-0 left-0 w-full"/>
+      <Footer className="fixed bottom-0 left-0 w-full" />
     </div>
   );
 };
