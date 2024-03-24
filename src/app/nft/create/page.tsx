@@ -4,6 +4,7 @@ import Navbar from "@/app/components/navbar";
 import { mintNFT } from "@/app/commons/mint";
 import { readNFT } from "@/app/commons/read";
 import { buyNFT } from "@/app/commons/buy";
+import Footer from "@/app/components/footer";
 
 const Page: React.FC = () => {
   const [account, setAccount] = useState("");
@@ -208,6 +209,8 @@ const Page: React.FC = () => {
           Buy NFT
         </button>
       </div>
+
+      <Footer />
     </div>
   );
 };

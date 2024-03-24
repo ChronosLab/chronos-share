@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Footer from "../components/footer";
 
 const Page: React.FC = () => {
   const [showToaster, setShowToaster] = useState(false);
@@ -51,6 +52,7 @@ const Page: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer className="fixed bottom-0 left-0 w-full"/>
     </div>
   );
 };

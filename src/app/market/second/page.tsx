@@ -1,7 +1,7 @@
 "use client";
 
+import Footer from "@/app/components/footer";
 import Navbar from "@/app/components/navbar";
-import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 
 const Page: React.FC = () => {
@@ -126,6 +126,7 @@ const Page: React.FC = () => {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 };
