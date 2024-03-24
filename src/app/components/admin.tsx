@@ -14,6 +14,7 @@ const Admin = () => {
     if (window.ethereum) {
       try {
         const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        console.log("Connected:", accounts[0])
         setAccount(accounts[0]);
       } catch (error) {
         console.error("User rejected request:", error);
