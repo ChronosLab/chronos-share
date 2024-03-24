@@ -1,17 +1,21 @@
 "use client";
+
 import Navbar from "../components/navbar";
+import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
-interface PageProps {
-  className?: string;
-}
-
-const Page: React.FC<PageProps> = ({ className }) => {
+const Page: React.FC = () => {
   const [showToaster, setShowToaster] = useState(false);
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  const handleBuyClick = () => {
+  const handleBuyConfirmClick = () => {
     // 當按下 "Buy" 按鈕時，設置 showToaster 為 true，從而顯示 toaster 1s後轉回/market/first
     setShowToaster(true);
+    setTimeout(() => {
+      router.push(searchParams.get("redirectPath") || "/");
+    }, 1000);
   };
 
   return (
@@ -34,15 +38,15 @@ const Page: React.FC<PageProps> = ({ className }) => {
           <p>99 USDT</p>
           <div>
             <p>Abilities:</p>
-            <p className="text-xs">Superhuman strength, agility, and reflexes
-        Ability to cling to surfaces and walls
-        Enhanced senses, including a "spider-sense" that alerts him to danger
-        Ability to shoot webs from his wrists and swing between buildings
-        Skilled hand-to-hand combatant.</p> 
-            </div> 
+            <p className="text-xs">
+              Superhuman strength, agility, and reflexes Ability to cling to surfaces and walls Enhanced senses,
+              including a "spider-sense" that alerts him to danger Ability to shoot webs from his wrists and swing
+              between buildings Skilled hand-to-hand combatant.
+            </p>
+          </div>
           <div className="card-actions justify-end">
-            <button className="w-[100px] btn btn-primary" onClick={handleBuyClick}>
-              Buy
+            <button className="w-[100px] btn btn-primary" onClick={handleBuyConfirmClick}>
+              Buy Confirm
             </button>
           </div>
         </div>

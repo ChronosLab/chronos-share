@@ -11,27 +11,18 @@ export async function POST(request: Request) {
       where: { email: email },
     });
     if (!loginUser) {
-      return NextResponse.json(
-        { user: null, message: "Password is wrong or email does not exist" },
-        { status: 400 },
-      );
+      return NextResponse.json({ user: null, message: "Password is wrong or email does not exist" }, { status: 400 });
     }
 
     // Convert bcrypt.compare to use Promises
     const match = await bcrypt.compare(password, loginUser.password);
     if (!match) {
-      return NextResponse.json(
-        { user: null, message: "Password is wrong or email does not exist" },
-        { status: 400 },
-      );
+      return NextResponse.json({ user: null, message: "Password is wrong or email does not exist" }, { status: 400 });
     }
 
     // If password matches
     const rand = Math.random().toString(36).substring(7);
-    const token = await bcrypt.hash(
-      rand + loginUser.username + loginUser.email,
-      10,
-    );
+    const token = await bcrypt.hash(rand + loginUser.username + loginUser.email, 10);
     const tokenExpiryTimestamp = new Date().getTime() + 1000 * 60 * 60 * 24; // 1 day in milliseconds
     const tokenExpiry = new Date(tokenExpiryTimestamp);
 
@@ -50,9 +41,6 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     console.error("Error in login:", error);
-    return NextResponse.json(
-      { user: null, message: "Server error", failed: true },
-      { status: 500 },
-    );
+    return NextResponse.json({ user: null, message: "Server error", failed: true }, { status: 500 });
   }
 }

@@ -1,4 +1,8 @@
+"use client";
+
 import Navbar from "@/app/components/navbar";
+import { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useRouter } from "next/navigation";
 
 const Page: React.FC = () => {
   const mockNFTs = [
@@ -58,6 +62,17 @@ const Page: React.FC = () => {
     },
   ];
 
+  const router = useRouter();
+  const createQueryString = (name: any, value: any) => {
+    const params = new URLSearchParams();
+    params.set(name, value);
+
+    return params.toString();
+  };
+  const handleBuyNowClick = () => {
+    router.push("/market/" + "?" + createQueryString("redirectPath", "/market/second"));
+  };
+
   return (
     <div className="flex flex-col min-h-screen items-center">
       <Navbar />
@@ -102,7 +117,9 @@ const Page: React.FC = () => {
                   </span>
                 </div>
                 <div className="card-actions">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button className="btn btn-primary" onClick={handleBuyNowClick}>
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>

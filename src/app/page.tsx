@@ -1,6 +1,6 @@
-import Admin from "./components/admin";
-import Content from "./components/content";
-import Footer from "./components/footer";
+import Admin from "@/app/components/admin";
+import Content from "@/app/components/content";
+import Footer from "@/app/components/footer";
 import Navbar from "@/app/components/navbar";
 
 const Page: React.FC = () => {

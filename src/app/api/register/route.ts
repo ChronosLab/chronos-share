@@ -10,10 +10,7 @@ export async function POST(request: Request) {
     const { email, username, password } = body;
 
     if (!email || !username || !password) {
-      return NextResponse.json(
-        { user: null, message: "email, username, password are mandatory" },
-        { status: 400 },
-      );
+      return NextResponse.json({ user: null, message: "email, username, password are mandatory" }, { status: 400 });
     }
 
     // const allUsers = await db.user.findMany()
@@ -21,10 +18,7 @@ export async function POST(request: Request) {
       where: { email: email },
     });
     if (existingUserByEmail) {
-      return NextResponse.json(
-        { user: null, message: "user with this email exists" },
-        { status: 409 },
-      );
+      return NextResponse.json({ user: null, message: "user with this email exists" }, { status: 409 });
     }
 
     const hashedpassword = await hash(password, 10);
@@ -36,10 +30,7 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json(
-      { user: newUser.username, message: "create new user" },
-      { status: 201 },
-    );
+    return NextResponse.json({ user: newUser.username, message: "create new user" }, { status: 201 });
   } catch (error) {
     return NextResponse.json({ user: null, message: error, failed: true });
   }
