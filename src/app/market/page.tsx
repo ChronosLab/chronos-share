@@ -28,10 +28,18 @@ const Page: React.FC<DetailProps> = ({ className }) => {
         <figure>
           <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">SpiderMan !</h2>
+        <div className="w-[10%] card-body">
+          <h2 className="card-title">SpiderMan ! (Peter Parker)</h2>
           <p>Rescue the world for every.</p>
           <p>99 USDT</p>
+          <div>
+            <p>Abilities:</p>
+            <p className="text-xs">Superhuman strength, agility, and reflexes
+        Ability to cling to surfaces and walls
+        Enhanced senses, including a "spider-sense" that alerts him to danger
+        Ability to shoot webs from his wrists and swing between buildings
+        Skilled hand-to-hand combatant.</p> 
+            </div> 
           <div className="card-actions justify-end">
             <button className="btn btn-primary" onClick={handleBuyClick}>
               Buy
