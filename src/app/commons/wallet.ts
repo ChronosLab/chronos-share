@@ -51,6 +51,7 @@ export async function acquireToken(userId: string) {
     .then(response => response.json())
     .catch(err => console.error('error:' + err));
 
+  console.log(result)
   return result.data
 }
 
@@ -94,4 +95,22 @@ export async function createChallenge(userId: string) {
   console.log(result)
 
   return result
+}
+
+export async function getWallet(userId: string) {
+
+  console.log(userId)
+  const url = `https://api.circle.com/v1/w3s/wallets?userId=${userId}&blockchain=ETH-SEPOLIA`;
+  const options = {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json', Authorization: `Bearer ${circleApiKey}`}
+  };
+  
+  const result = await fetch(url, options)
+    .then(response => response.json())
+    .catch(err => console.error('error:' + err));
+  
+  console.log(result)
+
+  return result.data.wallets
 }

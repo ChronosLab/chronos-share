@@ -27,7 +27,8 @@
     "pnpm": "^8.15.5",
     "prettier": "^3.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tmpl": "^1.0.5"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

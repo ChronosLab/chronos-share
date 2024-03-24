@@ -17,8 +17,6 @@ describe("Circle API", () => {
         console.log('user', result);
         const result3 = await initUser('test1123');
         console.log('challenge id', result3);
-        const result4 = await createChallenge('test1123');
-        console.log('challenge id', result4);
     });
 
     // it("create wallet set", async () => {

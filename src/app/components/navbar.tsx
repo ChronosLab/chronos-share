@@ -21,9 +21,9 @@ const Navbar: React.FC = () => {
                 <li>
                   <Link href={"/market/second"}>2ry Chronos Market</Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link href={"/market/third"}>Wallet</Link>
-                </li> */}
+                </li>
               </ul>
             </details>
           </li>

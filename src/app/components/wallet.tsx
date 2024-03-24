@@ -1,18 +1,31 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { W3SSdk } from "@circle-fin/w3s-pw-web-sdk";
 import { getAppId } from "../commons/publicKey";
-import { acquireToken, createUser, initUser } from "../commons/wallet";
+import { acquireToken, createUser, getWallet, initUser } from "../commons/wallet";
 
 const Wallet = () => {
-  const chanllenge = async () => {
+  const [walletUserId, setWalletUserId] = useState("");
+  const [wallet, setWallet] = useState({
+    accountType: "",
+    address: "",
+    custodyType: "",
+    blockchain: "",
+    id: "",
+    userId: "",
+  });
+
+  const createUserFun = async () => {
     const sdk = new W3SSdk();
 
     sdk.setAppSettings({
       appId: await getAppId(),
     });
 
-    const mockUserId = crypto.randomUUID()
+    const mockUserId = crypto.randomUUID();
+    localStorage.setItem("userId", mockUserId);
     await createUser(mockUserId);
+    // will hit cros issue here
     const { userToken, encryptionKey } = await acquireToken(mockUserId);
     sdk.setAuthentication({
       userToken: userToken,
@@ -31,10 +44,24 @@ const Wallet = () => {
     });
   };
 
+  const showWallet = async () => {
+    const userId = localStorage.getItem("userId") as string;
+    const curWallets = await getWallet(userId);
+    setWallet(curWallets[0]);
+  };
+
   return (
     <div>
-      <h1>Wallet Component</h1>
-      <button onClick={chanllenge}>Challenge Pin</button>
+      <h1>User Wallet</h1>
+      <button onClick={createUserFun}>CREATE USER WALLET</button>
+        <br />
+        <button onClick={showWallet}>SHOW WALLET</button>
+        <br />
+        <p>AccountType: {wallet.accountType}</p>
+        <p>Address: {wallet.address}</p>
+        <p>custodyType: {wallet.custodyType}</p>
+        <p>Blockchain: {wallet.blockchain}</p>
+        <p>UserId: {wallet.userId}</p>
     </div>
   );
 };
