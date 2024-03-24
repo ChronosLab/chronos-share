@@ -14,6 +14,7 @@ const Admin = () => {
     if (window.ethereum) {
       try {
         const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        console.log("Connected:", accounts[0])
         setAccount(accounts[0]);
       } catch (error) {
         console.error("User rejected request:", error);
@@ -26,7 +27,7 @@ const Admin = () => {
   const mint = async (nftName: string) => {
     try {
       console.log("Minting NFT:", nftName);
-      const result = await mintNFT(nftName, "chronos-share.vercel.app/assets/ChronosLogo.png");
+      const result = await mintNFT(nftName, nftName, "chronos-share.vercel.app/assets/ChronosLogo.png", "1", "0.001");
       console.log("Minted NFT:", result);
     } catch (error) {
       console.error("Error minting NFT:", error);
@@ -47,7 +48,7 @@ const Admin = () => {
   const buy = async (nftName: string, account: `0x${string}`) => {
     try {
       console.log("Buying NFT:", nftName);
-      const result = await buyNFT(nftName, 1, account);
+      const result = await buyNFT(nftName, "1", account);
       console.log("Bought NFT:", result);
     } catch (error) {
       console.error("Error buying NFT:", error);
