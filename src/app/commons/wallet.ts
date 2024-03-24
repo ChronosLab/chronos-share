@@ -102,10 +102,10 @@ export async function getWallet(userId: string) {
   };
   
   const result = await fetch(url, options)
-    .then(response => response.json())
-    .catch(err => console.error('error:' + err));
-  
-  console.log(result)
+    .then((response) => response.json())
+    .catch((err) => console.error("error:" + err));
+
+  console.log(result);
 
   return result.data.wallets
 }

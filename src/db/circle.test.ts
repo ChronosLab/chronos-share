@@ -7,12 +7,10 @@ describe("Circle API", () => {
   let walletSetId: string;
   let walletId: string;
 
-    it("create user", async () => {
-        const result = await createUser('test1123');
-        console.log('user', result);
-        const result3 = await initUser('test1123');
-        console.log('challenge id', result3);
-    });
+  it("get appid", async () => {
+    const result = await getAppId();
+    console.log("appId", result);
+  });
 
   it("create user", async () => {
     const result = await createUser("test1123");
