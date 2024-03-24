@@ -1,10 +1,10 @@
 "use client";
 
-import Navbar from "../components/navbar";
+import Navbar from "../../components/navbar";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Footer from "../components/footer";
+import Footer from "../../components/footer";
 
 const Page: React.FC = () => {
   const [showToaster, setShowToaster] = useState(false);
