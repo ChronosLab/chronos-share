@@ -24,3 +24,18 @@ export async function getCipherText() {
 
     return forge.util.encode64(encryptedData)
 }
+
+export async function getAppId() {
+
+    const url = 'https://api.circle.com/v1/w3s/config/entity';
+    const options = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${circleApiKey}` }
+    };
+
+    const result = await fetch(url, options)
+        .then(res => res.json())
+        .catch(err => console.error('error:' + err));
+
+    return result.data.appId
+}

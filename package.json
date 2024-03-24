@@ -14,6 +14,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@circle-fin/w3s-pw-web-sdk": "^1.0.9",
     "@prisma/client": "^5.11.0",
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
